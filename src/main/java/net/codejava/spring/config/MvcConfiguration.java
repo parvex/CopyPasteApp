@@ -2,8 +2,10 @@ package net.codejava.spring.config;
 
 import javax.sql.DataSource;
 
-import net.codejava.spring.dao.ContactDAO;
-import net.codejava.spring.dao.ContactDAOImpl;
+import net.codejava.spring.dao.PasteDAO;
+import net.codejava.spring.dao.PasteDAOImpl;
+import net.codejava.spring.dao.UserDAO;
+import net.codejava.spring.dao.UserDAOImpl;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -37,15 +39,22 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 	public DataSource getDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/contactdb");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/copypastedb");
 		dataSource.setUsername("root");
 		dataSource.setPassword("grebacz");
 		
 		return dataSource;
 	}
 	
+
 	@Bean
-	public ContactDAO getContactDAO() {
-		return new ContactDAOImpl(getDataSource());
+	public UserDAO getUserDAO()
+	{
+		return new UserDAOImpl(getDataSource());
+	}
+	@Bean
+	public PasteDAO getPasteDAO()
+	{
+		return new PasteDAOImpl(getDataSource());
 	}
 }
