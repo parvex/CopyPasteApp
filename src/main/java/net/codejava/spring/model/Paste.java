@@ -1,4 +1,9 @@
 package net.codejava.spring.model;
+/**
+ * Model class of Paste
+ * @author parvez
+ *
+ */
 
 public class Paste
 {

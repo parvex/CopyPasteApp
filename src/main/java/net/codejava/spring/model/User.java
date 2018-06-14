@@ -1,5 +1,11 @@
 package net.codejava.spring.model;
 
+/**
+ * Model class of User
+ * @author parvez
+ *
+ */
+
 public class User
 {
 	private int id;

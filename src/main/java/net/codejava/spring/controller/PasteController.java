@@ -22,6 +22,12 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.RandomStringUtils;
+
+/**
+ * This class controls operations on adding pastes to database.
+ * @author parvez
+ *
+ */
 @Controller
 public class PasteController
 {
@@ -29,9 +35,14 @@ public class PasteController
 	private PasteDAO pasteDAO;
 	
 	
-	
+	/**
+	 * 
+	 * @param model current model
+	 * @param session holds current user object
+	 * @return login.jsp if paste doesn't exist or paste 
+	 */
 	@RequestMapping(value="/paste", method = RequestMethod.GET)
-	public ModelAndView showPaste(ModelAndView model, HttpSession session) throws IOException{
+	public ModelAndView showPaste(ModelAndView model, HttpSession session){
 
 		User user = (User) session.getAttribute("user");
 		if(user == null) 
@@ -44,8 +55,15 @@ public class PasteController
 		
 		return model;
 	}
+
 	
-	
+	/**
+	 * 
+	 * @param paste paste to save
+	 * @param session hold current user
+	 * @return new view for saved paste
+	 * @throws IOException if saving paste failed
+	 */
 	@RequestMapping(value = "/savePaste", method = RequestMethod.POST)
 	public ModelAndView savePaste(@ModelAttribute Paste paste, HttpSession session) throws IOException {
 		

@@ -17,6 +17,12 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+/**
+ * Configuration of SpringMVC
+ * @author parvez
+ *
+ */
+
 @Configuration
 @ComponentScan(basePackages="net.codejava.spring.*")
 @EnableWebMvc

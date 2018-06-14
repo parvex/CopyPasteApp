@@ -19,12 +19,26 @@ import net.codejava.spring.dao.PasteDAO;
 import net.codejava.spring.model.Paste;
 import net.codejava.spring.model.User;
 
+
+
+/**
+ * This class controlls viewing existing paste
+ * @author parvez
+ *
+ */
 @Controller
 public class ViewController
 {
 	@Autowired
 	private PasteDAO pasteDAO;
-	
+	/**
+	 * 
+	 * @param path name of file with paste and url to it
+	 * @param model current model
+	 * @param session session which holds current user
+	 * @return 404 error if view not found or view of paste
+	 * @throws IOException throws if view not found
+	 */
 	@RequestMapping(value="/view/{path}", method = RequestMethod.GET)
 	public ModelAndView handleView(@PathVariable String path, ModelAndView model, HttpSession session) throws IOException
 	{
